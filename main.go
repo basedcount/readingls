@@ -49,7 +49,7 @@ func main() {
 			msg := telegram.NewMessage(update.Message.Chat.ID, "")
 			switch update.Message.Command() {
 			case "help":
-				msg.Text = "I understand \n\t/help\n\t/list"
+				msg.Text = "Hey! Welcome to Reading List. I store any links you send me and can relay them back to you /mylist.\nMore features coming soon!"
 			case "mylist":
 				links, err := conn.GetLinks(update.Message.From.UserName)
 				if err != nil {
