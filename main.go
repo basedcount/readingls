@@ -23,7 +23,7 @@ func main() {
 	if err := db.Ping(); err != nil {
 		log.Panic(err)
 	}
-
+	fmt.Println("Connected to DB")
 	conn := orm.New(db)
 
 	bot, err := telegram.NewBotAPI(os.Getenv("TELEGRAM_TOKEN"))
@@ -39,7 +39,6 @@ func main() {
 	u.Timeout = 60
 
 	updates := bot.GetUpdatesChan(u)
-
 	for update := range updates {
 		if update.Message == nil {
 			continue
